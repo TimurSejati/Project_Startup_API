@@ -15,8 +15,8 @@ type campaignHandler struct {
 	campaignService campaign.Service
 }
 
-func NewCampaignHandler(cammpaignService campaign.Service) *campaignHandler {
-	return &campaignHandler{cammpaignService}
+func NewCampaignHandler(campaignService campaign.Service) *campaignHandler {
+	return &campaignHandler{campaignService}
 }
 
 func (h *campaignHandler) GetCampaigns(c *gin.Context) {
