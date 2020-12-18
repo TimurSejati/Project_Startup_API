@@ -15,7 +15,7 @@ require (
 	github.com/ugorji/go v1.2.1 // indirect
 	golang.org/x/crypto v0.0.0-20201208171446-5f87f3452ae9
 	golang.org/x/sys v0.0.0-20201214210602-f9fddec55a1e // indirect
-	google.golang.org/protobuf v1.25.0 // indirect
+	google.golang.org/protobuf v1.25.0
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/driver/mysql v1.0.3 // indirect
 	gorm.io/gorm v1.20.8
