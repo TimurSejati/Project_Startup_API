@@ -47,6 +47,7 @@ func main() {
 	campaignHandler := handler.NewCampaignHandler(campaignService)
 	transactionHandler := handler.NewTransactionHandler(transactionService)
 
+	sessionWebHandler := webHandler.NewSessionHandler(userService)
 	userWebHandler := webHandler.NewUserHandler(userService)
 	campaignWebHandler := webHandler.NewCampaignService(campaignService, userService)
 	transactionWebHandler := webHandler.NewTransactionHandler(transactionService)
@@ -81,6 +82,10 @@ func main() {
 	api.GET("/transactions", authMiddleware(authService, userService), transactionHandler.GetUserTransaction)
 	api.POST("/transactions", authMiddleware(authService, userService), transactionHandler.CreateTransaction)
 	api.POST("/transactions/notification", transactionHandler.GetNotification)
+
+	router.GET("/login", sessionWebHandler.New)
+	router.POST("/session", sessionWebHandler.Create)
+	router.GET("/logout", sessionWebHandler.Destroy)
 
 	router.GET("/users", authAdminMiddleware(), userWebHandler.Index)
 	router.GET("/users/new", authAdminMiddleware(), userWebHandler.New)
